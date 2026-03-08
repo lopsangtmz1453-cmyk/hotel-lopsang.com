@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   FONT FACES - Pre-bundled variable fonts
+   ============================================= */
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================
+   HOTEL LOPSANG — Warm Nepali Restaurant Theme
+   Primary: Deep amber / terracotta
+   Neutrals: Warm cream, espresso brown
+   Accent: Saffron gold
+   ============================================= */
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* Core backgrounds — warm cream */
+    --background: 0.97 0.01 75;
+    --foreground: 0.16 0.03 55;
+
+    /* Cards */
+    --card: 0.99 0.006 80;
+    --card-foreground: 0.16 0.03 55;
+
+    /* Popover */
+    --popover: 0.99 0.006 80;
+    --popover-foreground: 0.16 0.03 55;
+
+    /* Primary — amber */
+    --primary: 0.60 0.18 50;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary — earthy brown */
+    --secondary: 0.28 0.06 55;
+    --secondary-foreground: 0.97 0.01 75;
+
+    /* Muted */
+    --muted: 0.93 0.016 72;
+    --muted-foreground: 0.50 0.03 65;
+
+    /* Accent — saffron */
+    --accent: 0.80 0.16 72;
+    --accent-foreground: 0.16 0.03 55;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders & inputs */
+    --border: 0.87 0.022 70;
+    --input: 0.89 0.018 70;
+    --ring: 0.60 0.18 50;
+
+    /* Charts */
+    --chart-1: 0.60 0.18 50;
+    --chart-2: 0.50 0.14 60;
+    --chart-3: 0.70 0.16 72;
+    --chart-4: 0.42 0.1 50;
+    --chart-5: 0.35 0.07 55;
+
+    /* Sidebar */
+    --sidebar: 0.19 0.03 55;
+    --sidebar-foreground: 0.92 0.018 75;
+    --sidebar-primary: 0.60 0.18 50;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.28 0.05 55;
+    --sidebar-accent-foreground: 0.92 0.018 75;
+    --sidebar-border: 0.3 0.04 55;
+    --sidebar-ring: 0.60 0.18 50;
+
+    /* Custom restaurant tokens */
+    --rest-amber: 0.68 0.19 50;
+    --rest-dark: 0.14 0.03 55;
+    --rest-cream: 0.97 0.012 78;
+    --rest-terracotta: 0.55 0.16 40;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+/* =============================================
+   UTILITY CLASSES
+   ============================================= */
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+.font-sans-body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Nav underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: oklch(0.80 0.17 72);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Scroll offset for fixed nav */
+section[id] {
+  scroll-margin-top: 72px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.95 0.01 75);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.60 0.18 50);
+  border-radius: 3px;
+}
